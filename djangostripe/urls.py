@@ -19,6 +19,8 @@ from shopping.views import CreateCheckoutSessionsView, ShoppingLandingPageView,S
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('cancel/', ShoppingCancelPageView.as_view(), name='cancel'),
+    path('success/', ShoppingSuccessPageView.as_view(), name='success'),
     path('', ShoppingLandingPageView.as_view(), name='landing'),
-    path('create-checkout-session', CreateCheckoutSessionsView.as_view(), name='create-checkout-session'),
+    path('create-checkout-session/<int:pk>', CreateCheckoutSessionsView.as_view(), name='create-checkout-session'),
 ]
